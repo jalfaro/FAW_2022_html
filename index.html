@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> -->
+<!-- Esta es la pagina HTML de ejemplo para FAW 2022-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mi primera pagina</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            window.onload = function() {
+                var x = 120;
+                var y = 120;
+                var key, pos = 0;
+                var canvas = document.getElementById("canvas");
+                var ctx = canvas.getContext("2d");
+                var img = new Image();
+                img.onload = function() {
+                    ctx.drawImage(img, x, y);
+                }
+                img.src = "img/nave.jpeg";
+                document.onkeydown = function(e) {
+                    pos = 1;
+                    key = window.event? e.keyCode : e.which;
+                }
+
+                document.onkeyup = function(e) {
+                    if (pos == 0) return;
+                    if (key == 37) x -= 2;
+                    if (key == 38) y -= 2;
+                    if (key == 39) x += 2;
+                    if (key == 40) y += 2;
+                    ctx.clearRect(0,0, 300, 300);
+                    ctx.drawImage(img,x,y);
+                }
+                
+            }
+        </script>
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <h1>Titulo</h1>
+        <h2>Subtitulo</h2>
+        <h3>Inciso</h3>
+        <h4>Sub-Inciso</h4>
+        <h5>valor</h5>
+        <p>
+            Esta es la <b>primera pagina</b> que hemos realizado en <i>FAW</i>, el objetivo es que 
+            podamos entender como html funciona y como esta puede interactuar con un
+            browser y desplegar la informacion ya <u>formateada</u>, entonces vamos a hacer 
+            aca algunas pruebas.
+        </p>
+        <p>
+            Esta es otra prueba de como la etiqueta &lt;p&gt; funciona y de esta forma
+            poder mostrar tambien que es una etiqueta muy util.
+        </p>
+        <p>
+            Entre los temas que se aprenderan en este curso : <br/>
+            <ul>
+                <li>Dise&ntilde;o</li>
+                <li>Maquetacion</li>
+                <li>Programacion</li>
+            </ul>
+        </p>
+        <p>
+            Este curso sera impartido en la <a href="http://www.galileo.edu">Universidad Galileo</a>
+        </p>
+    </body>
+    <form action="http://www.galileo.eud" method="GET">
+        <h1>Encuesta Universidad Galileo</h1>
+        <img src="img/logo.png" width="300" height="175"/> <br/>
+        1. Cual es su nombre? <br/>
+        <input type="text"/> <br/>
+        2. Ingrese su fecha de nacimiento <br/>
+        <input type="date" /> <br/>
+        3. Ingrese su color favorito <br/>
+        <input type="color"/> <br/>
+        4. Seleccione su clase favorita <br/>
+        <select>
+            <option value="1">FAW</option>
+            <option value="2">Base de Datos</option>
+            <option value="3">Sistemas Operativos</option>
+        </select><br/>
+        5. Seleccione su hobby <br/>
+        <input type="checkbox" name="hobby" value="futbol"/> Futbol <br/>
+        <input type="checkbox" name="hobby" value="videojuegos"/> Videojuegos <br/>
+        <input type="checkbox" name="hobby" value="leer"/> Leer</br/>
+        6. Libro favorito<br/>
+        <input type="radio" name="libro" /> 20000 leguas de viaje submarino <br/>
+        <input type="radio" name="libro" /> La hija del adelantado <br/>
+        <input type="radio" name="libro" /> Blancanieves</br/>
+    </form>
+</html>
